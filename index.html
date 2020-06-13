@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Word Puzzle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Signika+Negative:wght@600&amp;display=swap'>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div id="container" style="opacity:0">
+
+  <div class="app">
+
+    <div class="timeTxt">30:00</div>
+    <div class="timePlus">+3 sec</div>
+    <div class="playBtn">
+      <div class="playTxt">Play</div>
+    </div>
+
+    <div class="correctHead">Correct: <span class="correctN">0</span></div>
+    <div class="correctList"></div>
+
+    <div class="slot" id="s1"></div>
+    <div class="slot" id="s2"></div>
+    <div class="slot" id="s3"></div>
+    <div class="slot" id="s4"></div>
+    <div class="slot" id="s5"></div>
+    <div class="slot" id="s6"></div>
+
+    <div class="tile" id="t1">
+      <div class="tileShade"></div>
+      <div class="tileFront">M</div>
+    </div>
+    <div class="tile" id="t2">
+      <div class="tileShade"></div>
+      <div class="tileFront">I</div>
+    </div>
+    <div class="tile" id="t3">
+      <div class="tileShade"></div>
+      <div class="tileFront">X</div>
+    </div>
+    <div class="tile" id="t4">
+      <div class="tileShade"></div>
+      <div class="tileFront"><img width="100" height="100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJFBMVEUAAABHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmfSdFAAAADHRSTlPMAMCvnBx0M2BLC4rujjL5AAAErklEQVR4Ae3ahY/jRhQG8Cfb8l0U0VPioMDFJcFiSVCmVOQtVxSXW1Fd5ub4xHtMIpeZuX9c0er6azzezOzMlOYJD3/rz/DGnkdsoRziEIc45B+KOMQhDnGIQxziEIc45L3cAtJesYH4iQWEFmwglNpAAhsIbdhA6JgNJLSB0MgG4icWEFqwgVBqAwlmQQZ33/3O3e888GEuRXz4zttU1MYMSPviotbWfshmesafvnFt9eKLYyrKO7Yz0qLt8n/Y2bgQE2GFcgjR5Uk9MXiQpusLSYSCWiX6kirKT+SQeiX6nCprThahMBci+0lQ+2QRccd7mkTVlEbox2rjIxLXSBrxsiqjG9cg/j5JRNAmxlRT84kEIr7y3xYLeOz1SO2VHy3XIRusgNCc6MoSX1wSiOD4+1RXqSQiOJRJnbHAiggeSq/O8BNVBA9lqw65nndEeo/+UT99vYyHkgjvQ/+Obx999ADeVGIEq4u94hr+szax5/ye5JCKOiaF8KD0lIUVwnVUqqtwIXElyyGMfe+LytM+z4AEuSzCUfln3stFPQU9DZGUpRH8obPi+JahPQGywAoI30nbtchcOsXFGQDEz1QQOMnNqZskyBEZsRoy/Gs2UVy+FgAJWQnB5nTZdvjFfQeId0wZ6UBe8GxMEdlgZYS3F1d+Do+UkAEJeBdIG46kJWjKbUp3g/By+ZyMS8cFSINVEWy1+6AlXoan7pgqgr3WZ+a3RGvRASsjcBXvgasg0PVRDbtlimlpQrAT+tiujmlGeDKdVpN1I+0irR52Y71IFE+llelCIK85eO6HrAuBvPZBWisGkCgOsLlnBhCeLDLzMqalHRkeg85yvRGEIS0vMYYswxLMCAJpmUIgLVPIANIyhAyhuRtCtvB9TT+CaTXYEAJpGUIgrdwUEsWQlhmkDWl19xlBJpBWa49uBNIq1hO+dgTSKlZfX+hGIK1iPdHQj3QJ08JnpCakBWn18I7UhYwxLXwSa0L6kNYfqy8v14zgS0kPu6MuBF9KNrFz6UHgpaS0Vs20IpuYVvW6vp+znrdfgrVqoHOyoFOdFtEXGicLJpBWJPwisaCK4Glv4qVGqbbJgi34qgaXQYhIkCsi8IHwGP7G1PeuK1WRMaaF3/L8BBDvmBryNuErHOZFe3VMFsAH86xiW2NDw2TBuGpnC7YwfwTEz+SRZwjSqtqY8J4sI9SQRu6q3naIYvj9b3Y1WfAKlash3D65LZGdLIju/qNeeOkrgton3gi65IkX7n4bP1HVI62LPS+OPeGGpmBLS3WyACudeU8rVEaaErtzP6oiqcQ+o5+oIaHUjumcGjJ1MgfX1Sn7VJA5YVPWMFmAG1cSgY3kkVS85NMzWSBueN1lMbI3kUSaws4ca5ssCDIW1bsiZcRyiLhvixXZyQJvH9fV+8ui20QC8esN5u6X1XeVBLKU8U41uBDvarJg/Yd8plG1h1cB+WKWyYKjv9a5c+deeA6IuopeOnv0hPxkgXwN4Wo0PKK4weaRILeApGweabB5xE8sINezeSRk84h3zAKyweaRJltAUgtIg80jncwC0s3NI1gOcYhDHOIQhzjEIQ5xiEMc4hDj9Qv4E/e/tIWihwAAAABJRU5ErkJggg=="></div>
+    </div>
+    <div class="tile" id="t5">
+      <div class="tileShade"></div>
+      <div class="tileFront">U</div>
+    </div>
+    <div class="tile" id="t6">
+      <div class="tileShade"></div>
+      <div class="tileFront">P</div>
+    </div>
+
+  </div>
+
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/Draggable.min.js'></script>
+  <script src='https://assets.codepen.io/721952/words.js'></script>
+  <script  src="js/script.js"></script>
+
+</body>
+</html>
